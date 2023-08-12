@@ -34,7 +34,7 @@
 </script>
 
 <div class="w-full flex flex-col items-center">
-    <div class="card variant-glass-surface max-w-xl w-full px-12 py-10">
+    <div class="card variant-glass-surface max-w-xl w-full px-12 py-10 shadow-xl">
         <form method="POST" use:enhance>
 
             <div class="flex flex-col gap-6">
@@ -85,7 +85,7 @@
 
         <hr class="my-10"/>
 
-        <a href="/auth/register" class="btn btn-sm variant-filled-surface w-full" role="button">
+        <a href="/auth/register" class="btn btn-sm variant-glass-surface w-full" role="button">
             Don't have an account? Register here
         </a>
     </div>

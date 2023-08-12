@@ -67,7 +67,7 @@
 
 
 <div class="w-full flex flex-col items-center">
-    <div class="card variant-glass-surface max-w-4xl w-full px-12 py-10">
+    <div class="card variant-glass-surface max-w-4xl w-full px-12 py-10 shadow-xl">
         <form method="POST" class="flex flex-col gap-10" enctype="multipart/form-data" use:enhance>
 
             <Accordion>
