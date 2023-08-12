@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import '@skeletonlabs/skeleton/themes/theme-crimson.css';
+    import '@skeletonlabs/skeleton/themes/theme-modern.css';
     import '@skeletonlabs/skeleton/styles/skeleton.css';
     import '../app.postcss';
 
@@ -17,11 +17,11 @@
     import {authStore} from "$lib/stores/auth";
     import {page, updated} from '$app/stores';
     import Header from "$components/Header.svelte";
-    import {XCircle} from "lucide-svelte";
     import {onMount} from "svelte";
 
     import type {PageData} from "./$types";
     import {beforeNavigate} from "$app/navigation";
+    import {dev} from "$app/environment";
 
     export let data: PageData;
 
@@ -45,7 +45,7 @@
 
             toastStore.trigger({
                 message: $flash.message,
-                background: $flash.type === 'error' ? 'variant-filled-error' : 'variant-filled-secondary',
+                background: $flash.type === 'error' ? 'variant-glass-error shadow-xl' : 'variant-glass-secondary shadow-xl',
                 timeout: 5000,
                 hoverable: true,
             });
@@ -60,7 +60,7 @@
     });
 
     beforeNavigate(({willUnload, to}) => {
-        if ($updated && !willUnload && to?.url) {
+        if (!dev && $updated && !willUnload && to?.url) {
             location.href = to.url.href;
         }
     });
@@ -78,7 +78,7 @@
 <Toast/>
 <Drawer
         position="right"
-        bgDrawer="bg-surface-200-700-token text-white"
+        bgDrawer="variant-glass-surface text-white"
         bgBackdrop="bg-gradient-to-tr from-secondary-500/40 via-tertiary-500/40 to-primary-500/40 backdrop-blur"
         width="w-[280px] md:w-[480px]"
         padding="p-4"
@@ -101,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="btn-group variant-filled">
+                <div class="btn-group variant-glass">
                     <a class="basis-1/2" href="/auth/account">Account</a>
                     <form class="basis-1/2" action="/auth/logout" method="POST">
                         <button class="w-full" type="submit">Logout</button>
@@ -117,21 +117,12 @@
 
 <AppShell class="transition-transform {positionClasses}">
     <div slot="header" class="mt-5">
-        <div class="container h-full mx-auto flex flex-col rounded-2xl overflow-hidden border border-surface-400-500-token">
+        <div class="container h-full mx-auto flex flex-col rounded-2xl overflow-hidden shadow-xl">
             <Header/>
         </div>
     </div>
 
     <main class="container h-full mx-auto flex flex-col py-24 rounded-b-2xl">
-        {#if $flash}
-            <div class="alert variant-filled-error mb-10">
-                <div>
-                    <XCircle/>
-                </div>
-                <p class="alert-message">{$flash.message}</p>
-            </div>
-        {/if}
-
         <slot/>
     </main>
 </AppShell>

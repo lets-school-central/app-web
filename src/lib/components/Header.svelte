@@ -5,11 +5,11 @@
 
 <AppBar
         padding="py-2 px-4"
-        shadow="shadow-lg"
-        class="bg-surface-200-700-token"
+        class="variant-glass-surface"
+        background="bg-surface-300-600-token"
 >
     <svelte:fragment slot="lead">
-        <strong class="text-xl uppercase">Let's School Central</strong>
+        <a class="text-xl font-bold uppercase" href="/">Let's School Central</a>
     </svelte:fragment>
     <svelte:fragment slot="trail">
         {#if $authStore.user}
