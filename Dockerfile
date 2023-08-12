@@ -12,7 +12,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . ./
 
 ARG VERSION
-ENV ORIGIN=https://lets-school-central.app
+ENV ORIGIN=https://www.lets-school-central.app
 ENV PORT=8080
 RUN HOST=0.0.0.0 PORT=${PORT} ORIGIN=${ORIGIN} VERSION=${VERSION} pnpm run build
 
