@@ -100,7 +100,7 @@
 			Forever.
 		</h2>
 		<p class="mt-6 text-lg leading-8">
-			Let's School Central is free and <a href="https://github.com/LetsSchoolCentral" class="underline">open source software</a>.
+			Let's School Central is free and <a href="https://github.com/lets-school-central" class="underline">open source software</a>.
 			<br/>
 			All data is stored on a <a href="https://www.scaleway.com/en/security-and-resilience/" class="underline">secure cloud server in the EU respecting GDPR</a>.
 		</p>
